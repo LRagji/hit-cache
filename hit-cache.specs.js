@@ -9,7 +9,7 @@ function generateMock() {
         mockCache.lifespan = lifespan;
         mockCache.timeoutCallback = timeoutCallback
     };
-    mockCache.get = (key) => mockCache.value;
+    mockCache.get = (key) => (key === mockCache.key) ? mockCache.value : null;
     return mockCache;
 }
 
@@ -45,7 +45,7 @@ describe('Hits based cache', () => {
         expect(cachedvalue).to.equals(value);
     });
 
-    it('should get Undefined after lifespan is over.', () => {
+    it('should get null after lifespan is over.', () => {
         //Mock
         let mock = generateMock();
         //Setup
@@ -64,7 +64,7 @@ describe('Hits based cache', () => {
 
         //Validate
         let actual = UUT.get(key);
-        expect(undefined).to.equals(actual);
+        expect(null).to.equals(actual);
     });
 
     it('should increment the lifecount by one when get is called.', () => {
@@ -105,5 +105,21 @@ describe('Hits based cache', () => {
         expect(value).to.equals(actual);
         expect(mock.value.remainingLife).to.equals(0);
         expect(mock.lifespan).to.equals(lifespanInMillis);
+    });
+
+    it('should return null for unknown key', () => {
+        //Mock
+        let mock = generateMock();
+        //Setup
+        const UUT = new hitsBasedCache(mock);
+        const key = 'Hello';
+        const value = 'World';
+        const lifespanInMillis = 5000;
+
+        UUT.set(key, value, lifespanInMillis);
+        let actual = UUT.get("key");
+
+        //Validate
+        expect(null).to.equals(actual);
     });
 })

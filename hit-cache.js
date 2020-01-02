@@ -15,7 +15,8 @@ module.exports = class HitCache {
 
     get(key) {
         let value = this._cache.get(key);
-        if (value !== undefined) {
+        
+        if (value != undefined) {
             value.remainingLife++;//This is by ref updated in value.
             value = value.value;
         }
