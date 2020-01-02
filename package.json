@@ -1,5 +1,5 @@
 {
-  "name": "hit-cache",
+  "name": "@LRagji/hit-cache",
   "version": "0.0.1",
   "description": "A memory caching library, which uses hits to a key as cache expiry vector.",
   "main": "hit-cache.js",
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/LRagji/hit-cache.git"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "cache",
     "hit-cache",
