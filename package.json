@@ -1,0 +1,33 @@
+{
+  "name": "hit-cache",
+  "version": "0.0.1",
+  "description": "A memory caching library, which uses hits to a key as cache expiry vector.",
+  "main": "hit-cache.js",
+  "scripts": {
+    "test": "nyc mocha hit-cache.specs.js && nyc report --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LRagji/hit-cache.git"
+  },
+  "keywords": [
+    "cache",
+    "hit-cache",
+    "node-cache",
+    "memory-cache"
+  ],
+  "author": "Laukik",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/LRagji/hit-cache/issues"
+  },
+  "homepage": "https://github.com/LRagji/hit-cache#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.0"
+  },
+  "dependencies": {
+    "memory-cache": "^0.2.0"
+  }
+}

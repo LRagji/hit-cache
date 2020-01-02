@@ -5,9 +5,12 @@ This is a wrapper on top of the https://github.com/ptarjan/node-cache which prov
 
 ## Example:
 ```javascript
-const cache = require('memory-cache');
-const hitCacheType = require('memory-cache').HitCache;
-const hitCache = new hitCacheType(cache);
+// const cache = require('memory-cache');
+// const hitCacheType = require('memory-cache').HitCache;
+// const hitCache = new hitCacheType(cache);
+//OR
+const hitCache = new hitCacheType();
+
 hitCache.set("Laukik", "Disappears in 5 seconds, cause not hits.", 5000);
 setTimeout(() => {
     console.log("Laukik: " + hitCache.get("Laukik")); //Expected: Null
