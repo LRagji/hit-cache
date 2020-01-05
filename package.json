@@ -14,7 +14,10 @@
     "cache",
     "hit-cache",
     "node-cache",
-    "memory-cache"
+    "memory-cache",
+    "LRU",
+    "node-cache",
+    "Least Recently Used"
   ],
   "author": "Laukik",
   "license": "BSD-2-Clause",
